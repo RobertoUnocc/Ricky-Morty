@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "antd";
-const { Meta } = Card;
 const gridStyle = {
   width: "25%",
   textAlign: "center",

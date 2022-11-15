@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardPersonaje from "../components/Card/CardPersonaje";
-import { Col, Row, Collapse, Radio, Space } from "antd";
+import { Col, Row } from "antd";
 import Filter from "../components/Filter/Filter";
 import Paginacion from "../components/Paginacion/Paginacion";
 
@@ -17,21 +17,36 @@ const Home = () => {
     try {
       const res = await fetch(api);
       const data = await res.json();
-      console.log(data.results);
       SetValue(data.results);
     } catch (error) {
       SetValue([]);
     }
   };
 
+  const searchData = (e) => {
+    setSearch(e.target.value);
+    setPageNumber(1);
+  };
   useEffect(() => {
     fetchApi();
-  }, [status, species, gender, pageNumber]);
+  }, [status, species, gender, pageNumber, search]);
 
   return (
     <div>
       <h1>HOME</h1>
-      <Paginacion pageNumber={pageNumber} setPageNumber={setPageNumber} />
+      <Paginacion
+        value={value?.length}
+        pageNumber={pageNumber}
+        setPageNumber={setPageNumber}
+      />
+      <form className="search-box">
+        <input
+          type="}"
+          placeholder="Busquemos un personaje..."
+          value={search}
+          onChange={searchData}
+        />
+      </form>
       <Row>
         <Filter
           setStatus={setStatus}

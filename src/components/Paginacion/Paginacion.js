@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import React from "react";
 
-const Paginacion = ({ pageNumber, setPageNumber }) => {
+const Paginacion = ({ pageNumber, setPageNumber, value }) => {
   const paginaNext = () => {
     setPageNumber(pageNumber + 1);
   };
@@ -11,12 +11,14 @@ const Paginacion = ({ pageNumber, setPageNumber }) => {
 
   return (
     <div>
-      <Button onClick={paginaPrev} disabled={pageNumber == 1}>
+      <Button onClick={paginaPrev} disabled={pageNumber === 1}>
         PREV
       </Button>
-      <Button onClick={paginaNext}>NEXT</Button>
+      <Button onClick={paginaNext} disabled={value === undefined}>
+        NEXT
+      </Button>
       <p style={{ padding: "15px", fontWeight: "bold" }}>
-        Página : {pageNumber}{" "}
+        Página : {pageNumber}
       </p>
     </div>
   );
