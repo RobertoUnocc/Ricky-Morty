@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+.imagen-card{
+  background-color: red;
+  width: 100%;
+}
+
+.Alive{
+  color: rgb(224, 49, 49);
+}
+.Dead{
+  color: rgb(52, 201, 52);
+}
+.unknown{color: rgb(104, 98, 98);}
+.btm-limpiar{
+  
+  margin: 15px;
+}
